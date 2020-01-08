@@ -11,6 +11,8 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { TestsComponent } from '../../tests/tests.component';
+
 
 import {
   MatButtonModule,
@@ -42,6 +44,7 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    TestsComponent
   ]
 })
 
