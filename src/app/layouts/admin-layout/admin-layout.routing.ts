@@ -65,4 +65,3 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'tests',          component: TestsComponent },
     { path: 'subjectcard',    component: SubjectcardComponent },
 ];
- 
