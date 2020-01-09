@@ -54,7 +54,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
            elemSidebar.scrollTop = 0;
       });
       if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-          const ps = new PerfectScrollbar(elemMainPanel);
+          let ps = new PerfectScrollbar(elemMainPanel);
           ps = new PerfectScrollbar(elemSidebar);
       }
 
@@ -135,7 +135,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   }
 
   isMaps(path) {
-      const titlee = this.location.prepareExternalUrl(this.location.path());
+      let titlee = this.location.prepareExternalUrl(this.location.path());
       titlee = titlee.slice( 1 );
       if (path === titlee) {
         return false;
@@ -151,7 +151,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
     }
   }
   isMac(): boolean {
-      const bool = false;
+      let bool = false;
       if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {
           bool = true;
       }

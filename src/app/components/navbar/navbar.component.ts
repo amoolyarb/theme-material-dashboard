@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     location: Location;
-      mobile_menu_visible: any = 0;
+    mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    layer: any;
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
@@ -26,9 +27,9 @@ export class NavbarComponent implements OnInit {
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
       this.router.events.subscribe((event) => {
         this.sidebarClose();
-         const $layer: any = document.getElementsByClassName('close-layer')[0];
-         if ($layer) {
-           $layer.remove();
+         this.layer = document.getElementsByClassName('close-layer')[0];
+         if (this.layer) {
+           this.layer.remove();
            this.mobile_menu_visible = 0;
          }
      });
@@ -66,8 +67,8 @@ export class NavbarComponent implements OnInit {
         if (this.mobile_menu_visible === 1) {
             // $('html').removeClass('nav-open');
             body.classList.remove('nav-open');
-            if ($layer) {
-                $layer.remove();
+            if (this.layer) {
+                this.layer.remove();
             }
             setTimeout(function() {
                 $toggle.classList.remove('toggled');
@@ -79,26 +80,26 @@ export class NavbarComponent implements OnInit {
                 $toggle.classList.add('toggled');
             }, 430);
 
-            const $layer = document.createElement('div');
-            $layer.setAttribute('class', 'close-layer');
+            this.layer = document.createElement('div');
+            this.layer.setAttribute('class', 'close-layer');
 
 
             if (body.querySelectorAll('.main-panel')) {
-                document.getElementsByClassName('main-panel')[0].appendChild($layer);
+                document.getElementsByClassName('main-panel')[0].appendChild(this.layer);
             } else if (body.classList.contains('off-canvas-sidebar')) {
-                document.getElementsByClassName('wrapper-full-page')[0].appendChild($layer);
+                document.getElementsByClassName('wrapper-full-page')[0].appendChild(this.layer);
             }
 
             setTimeout(function() {
-                $layer.classList.add('visible');
+                this.layer.classList.add('visible');
             }, 100);
 
-            $layer.onclick = function() { // asign a function
+            this.layer.onclick = function() { // asign a function
               body.classList.remove('nav-open');
               this.mobile_menu_visible = 0;
-              $layer.classList.remove('visible');
+              this.layer.classList.remove('visible');
               setTimeout(function() {
-                  $layer.remove();
+                  this.layer.remove();
                   $toggle.classList.remove('toggled');
               }, 400);
             }.bind(this);
@@ -110,7 +111,7 @@ export class NavbarComponent implements OnInit {
     };
 
     getTitle() {
-      const titlee = this.location.prepareExternalUrl(this.location.path());
+      let titlee = this.location.prepareExternalUrl(this.location.path());
       if (titlee.charAt(0) === '#') {
           titlee = titlee.slice( 1 );
       }
