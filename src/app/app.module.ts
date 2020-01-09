@@ -22,6 +22,8 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
@@ -40,6 +42,8 @@ import { LandingComponent } from './landing/landing.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LoginComponent,
+    SignupComponent,
     LandingComponent,
   ],
   providers: [],
