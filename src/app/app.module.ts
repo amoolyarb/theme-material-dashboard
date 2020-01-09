@@ -24,6 +24,7 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   imports: [
@@ -42,9 +43,8 @@ import { SignupComponent } from './signup/signup.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    SignupComponent
-   
-
+    SignupComponent,
+    LandingComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

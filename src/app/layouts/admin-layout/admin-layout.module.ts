@@ -13,7 +13,6 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { TestsComponent } from '../../tests/tests.component';
 
-
 import {
   MatButtonModule,
   MatInputModule,
