@@ -25,6 +25,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LogoComponent } from './logo/logo.component';
+
 
 @NgModule({
   imports: [
@@ -45,6 +48,8 @@ import { LandingComponent } from './landing/landing.component';
     LoginComponent,
     SignupComponent,
     LandingComponent,
+    ForgotPasswordComponent,
+    LogoComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
