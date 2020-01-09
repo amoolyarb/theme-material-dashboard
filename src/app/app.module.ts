@@ -22,6 +22,7 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
+    LandingComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
