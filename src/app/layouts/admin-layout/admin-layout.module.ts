@@ -44,7 +44,7 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    TestsComponent
+    TestsComponent,
   ]
 })
 
