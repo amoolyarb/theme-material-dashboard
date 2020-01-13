@@ -1,0 +1,31 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                 <tr>
+                                    <th *ngFor="let cell of tableData1.headerRow">  {{ cell }} </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="clearfix"></div>
+                                    <tr *ngFor="let row of questions">
+                                        <td>{{row.title}}</td>
+                                        <td>{{row.description}}</td>
+                                        <td>{{row.answer_id}}</td>
+                                        <td>{{row.answer}}</td>
+                                        <td>{{row.a_type}}</td>
+                                        <td><button type="button" (click)= "deleteques(question)" class="btn btn-primary">Delete</button></td>
+                                        <td><button type="button" (click)= "details(question)" class="btn btn-primary">Delete</button></td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>

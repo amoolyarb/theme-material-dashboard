@@ -13,6 +13,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { TestsComponent } from '../../tests/tests.component';
 import { SubjectcardComponent } from '../../components/subjectcard/subjectcard.component';
+import { QuestionsComponent } from '../../questions/questions.component';
+import { QuestionsService } from '../../questions/questions.service';
 
 import {
   MatButtonModule,
@@ -46,7 +48,11 @@ import {
     UpgradeComponent,
     TestsComponent,
     SubjectcardComponent,
-  ]
+    QuestionsComponent,
+  ],
+  providers: [
+    QuestionsService,
+    ]
 })
 
 export class AdminLayoutModule {}

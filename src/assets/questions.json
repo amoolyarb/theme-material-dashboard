@@ -1,0 +1,23 @@
+{
+  "title": "ques1",
+  "description": "This question is based on Mathematics",
+  "answer_id": "1",
+  "answers": [
+    {
+      "title": "multiple choice",
+      "a_type": "checkbox"
+    },
+    {
+      "title": "multiple choice",
+      "a_type": "checkbox"
+    },
+    {
+      "title": "multiple choice",
+      "a_type": "checkbox"
+    },
+    {
+      "title": "multiple choice",
+      "a_type": "checkbox"
+    }
+  ]
+}
