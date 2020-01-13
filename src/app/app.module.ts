@@ -29,6 +29,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { LogoComponent } from './logo/logo.component';
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -50,6 +51,7 @@ import { LogoComponent } from './logo/logo.component';
     LandingComponent,
     ForgotPasswordComponent,
     LogoComponent,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

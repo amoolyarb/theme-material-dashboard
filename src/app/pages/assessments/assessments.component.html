@@ -1,0 +1,33 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Assessments</h4>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                          <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of assessments">
+                                        <td>{{row['title']}}</td>
+                                        <td>{{row['description']}}</td>
+                                        <td>{{['row.duration']}}</td>
+                                        <td>{{['row.tags']}}</td>
+                                        <td>{{['row.industries']}}</td>
+                                        <td>{{['row.premium']}}</td>
+                                        <td>{{['row.link']}}</td>
+                                    </tr>
+                                </tbody>
+                          </table>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: false,
+  host:'http://localhost:4200',
+  assessmentsUrl:'/assets/assessments.json',
 };

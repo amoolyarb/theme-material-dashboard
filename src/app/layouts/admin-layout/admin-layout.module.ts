@@ -13,6 +13,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { TestsComponent } from '../../tests/tests.component';
 import { SubjectcardComponent } from '../../components/subjectcard/subjectcard.component';
+import { AssessmentsComponent } from '../../pages/assessments/assessments.component';
+
 
 import {
   MatButtonModule,
@@ -46,6 +48,7 @@ import {
     UpgradeComponent,
     TestsComponent,
     SubjectcardComponent,
+    AssessmentsComponent
   ]
 })
 
