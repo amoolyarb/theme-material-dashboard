@@ -5,16 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '@app/pages/dashboard/dashboard.component';
 import { UserProfileComponent } from '@app/pages/user-profile/user-profile.component';
-import { TableListComponent } from '@app/table-list/table-list.component';
-import { TypographyComponent } from '@app/typography/typography.component';
-import { IconsComponent } from '@app/icons/icons.component';
-import { UpgradeComponent } from '@app/upgrade/upgrade.component';
 import { TestsComponent } from '@app/pages/tests/tests.component';
 import { SubjectcardComponent } from '@app/components/subjectcard/subjectcard.component';
-import { QuestionsComponent } from '@app/pages/questions/questions.component';
+import { TestLibraryComponent } from '@app/pages/test-library/test-library.component';
 import { AssessmentsComponent } from '@app/pages/assessments/assessments.component';
-import { QuestionsService } from '@app/pages/questions/questions.service';
+import { QuestionsComponent } from '@app/pages/questions/questions.component';
 
+import { QuestionsService } from '@app/pages/questions/questions.service';
 import {
   MatButtonModule,
   MatInputModule,
@@ -23,6 +20,8 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import { AssessmentsService } from '@app/services/assessments.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -39,17 +38,15 @@ import {
   declarations: [
     DashboardComponent,
     UserProfileComponent,
-    TableListComponent,
-    TypographyComponent,
-    IconsComponent,
-    UpgradeComponent,
     TestsComponent,
+    TestLibraryComponent,
     SubjectcardComponent,
     AssessmentsComponent,
     QuestionsComponent,
   ],
   providers: [
     QuestionsService,
+    AssessmentsService
   ]
 })
 
