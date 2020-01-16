@@ -3,18 +3,19 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
-import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { TableListComponent } from '../../table-list/table-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
-import { IconsComponent } from '../../icons/icons.component';
-import { MapsComponent } from '../../maps/maps.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { TestsComponent } from '../../tests/tests.component';
-import { SubjectcardComponent } from '../../components/subjectcard/subjectcard.component';
-import { AssessmentsComponent } from '../../pages/assessments/assessments.component';
-
+import { DashboardComponent } from '@app/pages/dashboard/dashboard.component';
+import { UserProfileComponent } from '@app/pages/user-profile/user-profile.component';
+import { TableListComponent } from '@app/table-list/table-list.component';
+import { TypographyComponent } from '@app/typography/typography.component';
+import { IconsComponent } from '@app/icons/icons.component';
+import { MapsComponent } from '@app/maps/maps.component';
+import { NotificationsComponent } from '@app/notifications/notifications.component';
+import { UpgradeComponent } from '@app/upgrade/upgrade.component';
+import { TestsComponent } from '@app/pages/tests/tests.component';
+import { SubjectcardComponent } from '@app/components/subjectcard/subjectcard.component';
+import { AssessmentsComponent } from '@app/pages/assessments/assessments.component';
+import { QuestionsComponent } from '@app/pages/questions/questions.component';
+import { QuestionsService } from '@app/pages/questions/questions.service';
 
 import {
   MatButtonModule,
@@ -48,7 +49,11 @@ import {
     UpgradeComponent,
     TestsComponent,
     SubjectcardComponent,
-    AssessmentsComponent
+    AssessmentsComponent,
+    QuestionsComponent,
+  ],
+  providers: [
+    QuestionsService,
   ]
 })
 
