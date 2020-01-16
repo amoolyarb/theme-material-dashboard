@@ -14,7 +14,7 @@ import { TestsComponent } from '@app/pages/tests/tests.component';
 import { SubjectcardComponent } from '@app/components/subjectcard/subjectcard.component';
 // import { AssessmentsComponent } from '@app/pages/assessments/assessments.component';
 import { QuestionsComponent } from '@app/pages/questions/questions.component';
-import { QuestionsService } from '@app/pages/questions/questions.service';
+import { QuestionsService } from '@app/services/questions.service';
 
 import {
   MatButtonModule,

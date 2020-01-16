@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Question } from '../../models/question.model';
+import { Question } from '@app/models/question.model';
 import { NgForm } from '@angular/forms';
-import { QuestionsService } from './questions.service';
-
-declare interface TableData {
-  headerRow: string[];
-}
+import { QuestionsService } from '@app/services/questions.service';
 
 @Component({
   selector: 'hl-questions',
@@ -14,25 +10,18 @@ declare interface TableData {
 })
 
 export class QuestionsComponent implements OnInit {
-  public tableData1: TableData;
   questions: Question[];
   deleteQues: any;
 
   constructor(private questionsService: QuestionsService) {}
+
   ngOnInit() {
-    this.tableData1 = {
-      headerRow: ['Title', 'Description', 'Answer Id', 'Answer', 'Answer Type', 'Action'],
-    };
-    this.showQuestions();
+    this.loadQuestions();
   }
 
-  showQuestions() {
-    this.questionsService.getQuestions().subscribe((data: Question[]) => this.questions = { ...data });
-  }
-
-  onSubmit(f: NgForm) {
-    this.questions.push(f.value);
-    console.log(this.questions);
+  loadQuestions() {
+    this.questionsService.getQuestions()
+      .subscribe((data: Question[]) => this.questions = { ...data });
   }
 
   deleteques(question) {

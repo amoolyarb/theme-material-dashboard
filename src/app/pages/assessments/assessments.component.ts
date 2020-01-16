@@ -22,7 +22,7 @@ export class AssessmentsComponent implements OnInit {
   }
 
   showassessments() {
-    assessmentsService.getAssessments().subscribe((data: Assessment[]) => {
+    this.assessmentsService.getAssessments().subscribe((data: Assessment[]) => {
            const strAssessments = JSON.stringify(data);
            console.log(strAssessments);
          });
