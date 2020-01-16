@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+/* tslint:disable:one-variable-per-declaration */
 
 @Component({
   selector: 'hl-dashboard',
@@ -15,7 +16,7 @@ export class DashboardComponent implements OnInit {
       delays = 80;
       durations = 500;
 
-      chart.on('draw', function(data) {
+      chart.on('draw', (data) => {
         if (data.type === 'line' || data.type === 'area') {
           data.element.animate({
             d: {
@@ -41,14 +42,14 @@ export class DashboardComponent implements OnInit {
       });
 
       seq = 0;
-  };
+  }
   startAnimationForBarChart(chart) {
       let seq2: any, delays2: any, durations2: any;
 
       seq2 = 0;
       delays2 = 80;
       durations2 = 500;
-      chart.on('draw', function(data) {
+      chart.on('draw', (data) => {
         if (data.type === 'bar') {
             seq2++;
             data.element.animate({
@@ -64,7 +65,7 @@ export class DashboardComponent implements OnInit {
       });
 
       seq2 = 0;
-  };
+  }
   ngOnInit() {
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
@@ -75,14 +76,14 @@ export class DashboardComponent implements OnInit {
           ]
       };
 
-     const optionsDailySalesChart: any = {
-          lineSmooth: Chartist.Interpolation.cardinal({
-              tension: 0
-          }),
-          low: 0,
-          high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
-      }
+      const optionsDailySalesChart: any = {
+        lineSmooth: Chartist.Interpolation.cardinal({
+          tension: 0
+        }),
+        low: 0,
+        high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
+      };
 
       const dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
 
@@ -98,14 +99,14 @@ export class DashboardComponent implements OnInit {
           ]
       };
 
-     const optionsCompletedTasksChart: any = {
-          lineSmooth: Chartist.Interpolation.cardinal({
-              tension: 0
-          }),
-          low: 0,
-          high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
-      }
+      const optionsCompletedTasksChart: any = {
+        lineSmooth: Chartist.Interpolation.cardinal({
+          tension: 0
+        }),
+        low: 0,
+        high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
+      };
 
       const completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
 
@@ -135,7 +136,7 @@ export class DashboardComponent implements OnInit {
         ['screen and (max-width: 640px)', {
           seriesBarDistance: 5,
           axisX: {
-            labelInterpolationFnc: function (value) {
+            labelInterpolationFnc: (value) => {
               return value[0];
             }
           }

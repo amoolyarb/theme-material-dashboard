@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
   sidebarOpen() {
     const toggleButton = this.toggleButton;
     const body = document.getElementsByTagName('body')[0];
-    setTimeout(function() {
+    setTimeout(() => {
       toggleButton.classList.add('toggled');
     }, 500);
 
@@ -70,13 +70,13 @@ export class NavbarComponent implements OnInit {
       if (this.layer) {
         this.layer.remove();
       }
-      setTimeout(function() {
+      setTimeout(() => {
         $toggle.classList.remove('toggled');
       }, 400);
 
       this.mobileMenuVisible = 0;
     } else {
-      setTimeout(function() {
+      setTimeout(() => {
         $toggle.classList.add('toggled');
       }, 430);
 

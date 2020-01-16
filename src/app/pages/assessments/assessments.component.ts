@@ -14,5 +14,5 @@ export class AssessmentsComponent implements OnInit {
   constructor(private assessmentsService: AssessmentsService) {}
 
   ngOnInit() {
-    };
+    }
   }

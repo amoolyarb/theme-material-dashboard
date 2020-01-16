@@ -5,11 +5,11 @@ import { UserProfileComponent } from '@app/pages/user-profile/user-profile.compo
 import { TableListComponent } from '@app/table-list/table-list.component';
 import { TypographyComponent } from '@app/typography/typography.component';
 import { IconsComponent } from '@app/icons/icons.component';
-import { NotificationsComponent } from '@app/notifications/notifications.component';
 import { UpgradeComponent } from '@app/upgrade/upgrade.component';
 import { TestsComponent } from '@app/pages/tests/tests.component';
 import { SubjectcardComponent } from '@app/components/subjectcard/subjectcard.component';
 import { QuestionsComponent } from '@app/pages/questions/questions.component';
+import { AssessmentsComponent } from '@app/pages/assessments/assessments.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -59,9 +59,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'tests',          component: TestsComponent },
     { path: 'subjectcard',    component: SubjectcardComponent },
     { path: 'questions',      component: QuestionsComponent },
+    { path: 'assessments',    component: AssessmentsComponent }
 ];

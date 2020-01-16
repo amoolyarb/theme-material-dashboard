@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 declare interface Subject {
-  id: number,
-  title: string,
-  icon: string
+  id: number;
+  title: string;
+  icon: string;
 }
 
 @Component({
@@ -75,6 +75,6 @@ export class TestsComponent implements OnInit {
     { id: 1, title: 'Stroke', icon: '' },
     { id: 1, title: 'Surgery', icon: '' },
     { id: 1, title: 'Urology', icon: '' }
-    ]
+    ];
   }
 }
