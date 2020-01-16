@@ -9,6 +9,7 @@
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
+    "indent": [true, "spaces", 2],
     "directive-selector": [
       true,
       "attribute",
