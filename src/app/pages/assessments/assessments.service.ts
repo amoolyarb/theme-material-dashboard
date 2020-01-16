@@ -4,13 +4,12 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class AssessmentsService {
-assessmentsUrl = 'assets/assessments.json';
+  assessmentsUrl = 'assets/assessments.json';
 
-constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient) {
 }
 
-getAssessments() {
-return this.http.get(this.assessmentsUrl);
-}
+  getAssessments() {
+    return this.http.get(this.assessmentsUrl);
+  }
 }

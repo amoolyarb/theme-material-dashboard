@@ -9,7 +9,7 @@ label?: string;
 draggable?: boolean;
 }
 @Component({
-  selector: 'app-maps',
+  selector: 'hl-maps',
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.css']
 })

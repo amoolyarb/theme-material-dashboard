@@ -10,7 +10,8 @@
     "experimentalDecorators": true,
     "target": "es5",
     "paths": {
-      "@app/*": ["app/*"]
+      "@app/*": ["app/*"],
+      "@src/*": ["./*"]
     },
     "typeRoots": [
       "node_modules/@types"

@@ -2,35 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { Assessment } from './assessment.model';
 import { AssessmentsService } from './assessments.service';
 
-declare interface TableData {
-  headerRow: string[];
-}
-
-
 @Component({
-  selector: 'app-assessments',
+  selector: 'hl-assessments',
   templateUrl: './assessments.component.html',
   styleUrls: ['./assessments.component.scss']
 })
+
 export class AssessmentsComponent implements OnInit {
-  public tableData1: TableData;
   assessments: Assessment[];
 
-
-  constructor() {}
+  constructor(private assessmentsService: AssessmentsService) {}
 
   ngOnInit() {
     this.tableData1 = {
       headerRow: ['title', 'description', 'duration', 'tags', 'industries', 'premium', 'link'],
     };
-  this.showassessments();
-
+    this.showassessments();
   }
 
   showassessments() {
-    AssessmentsService.  getAssessments().subscribe((data: Assessment[]) => {
-           const str_assessments = JSON.stringify(data);
-           console.log(str_assessments);
+    assessmentsService.getAssessments().subscribe((data: Assessment[]) => {
+           const strAssessments = JSON.stringify(data);
+           console.log(strAssessments);
          });
   }
 }

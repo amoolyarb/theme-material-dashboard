@@ -7,7 +7,7 @@ declare interface Subject {
 }
 
 @Component({
-  selector: 'app-tests',
+  selector: 'hl-tests',
   templateUrl: './tests.component.html',
   styleUrls: ['./tests.component.scss']
 })

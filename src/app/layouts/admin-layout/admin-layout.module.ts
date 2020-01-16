@@ -13,7 +13,7 @@ import { NotificationsComponent } from '@app/notifications/notifications.compone
 import { UpgradeComponent } from '@app/upgrade/upgrade.component';
 import { TestsComponent } from '@app/pages/tests/tests.component';
 import { SubjectcardComponent } from '@app/components/subjectcard/subjectcard.component';
-import { AssessmentsComponent } from '@app/pages/assessments/assessments.component';
+// import { AssessmentsComponent } from '@app/pages/assessments/assessments.component';
 import { QuestionsComponent } from '@app/pages/questions/questions.component';
 import { QuestionsService } from '@app/pages/questions/questions.service';
 
@@ -49,7 +49,7 @@ import {
     UpgradeComponent,
     TestsComponent,
     SubjectcardComponent,
-    AssessmentsComponent,
+    // AssessmentsComponent,
     QuestionsComponent,
   ],
   providers: [

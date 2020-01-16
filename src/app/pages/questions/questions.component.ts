@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from './question.model';
 import { NgForm } from '@angular/forms';
-import { QuestionsService} from './questions.service';
+import { QuestionsService } from './questions.service';
 
 declare interface TableData {
   headerRow: string[];
 }
 
 @Component({
-  selector: 'app-questions',
+  selector: 'hl-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 declare var $: any;
 @Component({
-  selector: 'app-notifications',
+  selector: 'hl-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.css']
 })
