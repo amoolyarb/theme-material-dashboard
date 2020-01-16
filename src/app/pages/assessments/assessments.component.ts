@@ -17,13 +17,20 @@ export class AssessmentsComponent implements OnInit {
   assessments: Assessment[];
 
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.tableData1 = {
       headerRow: ['title', 'description', 'duration', 'tags', 'industries', 'premium', 'link'],
     };
+  this.showassessments();
 
   }
 
+  showassessments() {
+    AssessmentsService.  getAssessments().subscribe((data: Assessment[]) => {
+           const str_assessments = JSON.stringify(data);
+           console.log(str_assessments);
+         });
+  }
 }
