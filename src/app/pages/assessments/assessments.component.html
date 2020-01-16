@@ -10,18 +10,24 @@
                           <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Duration</th>
+                                        <th>Tags</th>
+                                        <th>Industries</th>
+                                        <th>Premium</th>
+                                        <th>Link</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let row of assessments">
-                                        <td>{{'row.title'}}</td>
-                                        <td>{{'row.description'}}</td>  
-                                        <td>{{'row.duration'}}</td>
-                                        <td>{{'row.tags'}}</td>
-                                        <td>{{'row.industries'}}</td>
-                                        <td>{{'row.premium'}}</td>
-                                        <td>{{'row.link'}}</td>
+                                        <td>{{row.title}}</td>
+                                        <td>{{row.description}}</td>  
+                                        <td>{{row.duration}}</td>
+                                        <td>{{row.tags}}</td>
+                                        <td>{{row.industries}}</td>
+                                        <td>{{row.premium}}</td>
+                                        <td>{{row.link}}</td>
                                     </tr>
                                 </tbody>
                           </table>
