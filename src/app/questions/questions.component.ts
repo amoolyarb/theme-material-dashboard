@@ -18,27 +18,25 @@ export class QuestionsComponent implements OnInit {
   questions: Question[];
   deleteQues: any;
 
-  constructor(private questionsService: QuestionsService) { }
-
+  constructor(private questionsService: QuestionsService) {}
   ngOnInit() {
     this.tableData1 = {
-      headerRow: ['Title', 'Description','Answer Id','Answer','Answer Type','Action'],
+      headerRow: ['Title', 'Description', 'Answer Id', 'Answer', 'Answer Type', 'Action'],
     };
     this.showQuestions();
   }
 
-  showQuestions() { 
-    console.log(this.questions);
-  this.questionsService.getQuestions().subscribe((data: Question[]) => this.questions = { ...data });
+  showQuestions() {
+    this.questionsService.getQuestions().subscribe((data: Question[]) => this.questions = { ...data });
   }
 
-  onSubmit(f: NgForm) { 
+  onSubmit(f: NgForm) {
     this.questions.push(f.value);
     console.log(this.questions);
   }
-  deleteques(question){
-  this.deleteQues = this.questions.indexOf(question);
-  this.questions.splice(this.deleteQues,1);
-}
-   
+
+  deleteques(question) {
+    this.deleteQues = this.questions.indexOf(question);
+    this.questions.splice(this.deleteQues, 1);
+  }
 }
