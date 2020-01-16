@@ -1,9 +1,9 @@
 <div class="card card-stats">
   <div class="card-header card-header-warning card-header-icon">
     <div class="card-icon">
-      <i class="material-icons"></i>
+      <i class="material-icons">{{subject.icon}}</i>
     </div>
-    <p class="card-category">{{title}}</p>
+    <p class="card-category"><a [routerLink]="['/test-library',subject.slug]">{{subject.title}}</a></p>
   </div>
   <div class="card-footer">
     <div class="stats">

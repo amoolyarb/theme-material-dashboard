@@ -3,6 +3,7 @@
  * Dependency modules
  */
 import { Component, OnInit, Input } from '@angular/core';
+import { Subject } from '@app/models/subject.model';
 
 @Component({
   selector: 'hl-subjectcard',
@@ -11,9 +12,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class SubjectcardComponent implements OnInit {
-  @Input() id: number;
-  @Input() title: string;
-  @Input() icon: string;
+  @Input() subject: Subject;
 
   constructor() {}
 

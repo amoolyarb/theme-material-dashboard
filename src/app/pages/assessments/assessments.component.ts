@@ -1,6 +1,10 @@
+/**
+ * HighLearner @viewwiser.com
+ * Dependency modules
+ */
 import { Component, OnInit } from '@angular/core';
-import { Assessment } from './assessment.model';
-import { AssessmentsService } from './assessments.service';
+import { Assessment } from '@app/models/assessment.model';
+import { AssessmentsService } from '@app/services/assessments.service';
 
 @Component({
   selector: 'hl-assessments',
@@ -13,5 +17,14 @@ export class AssessmentsComponent implements OnInit {
 
   constructor(private assessmentsService: AssessmentsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.showassessments();
+  }
+
+  showassessments() {
+    this.assessmentsService.getAssessments().subscribe((data: Assessment[]) => {
+           const strAssessments = JSON.stringify(data);
+           console.log(strAssessments);
+         });
+  }
 }
