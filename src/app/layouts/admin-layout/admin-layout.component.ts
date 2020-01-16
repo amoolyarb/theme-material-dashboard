@@ -8,7 +8,7 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-admin-layout',
+  selector: 'hl-admin-layout',
   templateUrl: './admin-layout.component.html',
   styleUrls: ['./admin-layout.component.scss']
 })

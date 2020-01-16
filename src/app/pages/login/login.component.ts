@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-login',
+  selector: 'hl-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss', 'vendor/bootstrap/css/bootstrap.min.css',
   'fonts/font-awesome-4.7.0/css/font-awesome.min.css', 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css',

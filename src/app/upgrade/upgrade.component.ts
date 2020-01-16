@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-upgrade',
+  selector: 'hl-upgrade',
   templateUrl: './upgrade.component.html',
   styleUrls: ['./upgrade.component.css']
 })
