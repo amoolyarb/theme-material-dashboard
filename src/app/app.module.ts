@@ -8,8 +8,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
@@ -18,12 +18,12 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { AgmCoreModule } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { LandingComponent } from './landing/landing.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { LogoComponent } from './logo/logo.component';
-import { TermsComponent } from './terms/terms.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LandingComponent } from './pages/landing/landing.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { TermsComponent } from './pages/terms/terms.component';
 
 @NgModule({
   imports: [
