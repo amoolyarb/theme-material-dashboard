@@ -23,7 +23,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { LogoComponent } from './components/logo/logo.component';
-import { TermsComponent } from './pages/terms/terms.component';
+import { TermsComponent} from './pages/terms/terms.component';
 
 @NgModule({
   imports: [
