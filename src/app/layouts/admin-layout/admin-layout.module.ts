@@ -8,7 +8,6 @@ import { UserProfileComponent } from '@app/pages/user-profile/user-profile.compo
 import { TableListComponent } from '@app/table-list/table-list.component';
 import { TypographyComponent } from '@app/typography/typography.component';
 import { IconsComponent } from '@app/icons/icons.component';
-import { MapsComponent } from '@app/maps/maps.component';
 import { NotificationsComponent } from '@app/notifications/notifications.component';
 import { UpgradeComponent } from '@app/upgrade/upgrade.component';
 import { TestsComponent } from '@app/pages/tests/tests.component';
@@ -44,7 +43,6 @@ import {
     TableListComponent,
     TypographyComponent,
     IconsComponent,
-    MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
     TestsComponent,

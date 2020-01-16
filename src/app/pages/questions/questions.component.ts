@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Question } from './question.model';
+import { Question } from '../../models/question.model';
 import { NgForm } from '@angular/forms';
 import { QuestionsService} from './questions.service';
 
