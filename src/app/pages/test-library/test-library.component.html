@@ -9,7 +9,7 @@
   <div class="col-md-12">
     <div class="row">
       <div *ngFor="let subject of subjects" class="col-md-3">
-        <hl-subjectcard [title]="subject.title" [icon]="subject.icon" [id]="subject.id"></hl-subjectcard>
+        <hl-subjectcard [subject]="subject"></hl-subjectcard>
       </div>
     </div>
   </div>
