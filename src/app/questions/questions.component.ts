@@ -26,9 +26,11 @@ export class QuestionsComponent implements OnInit {
     };
     this.showQuestions();
   }
-  showQuestions() {
-  this.questionsService.getQuestions().subscribe((data: Question[]) => (data));
-}
+
+  showQuestions() { 
+    console.log(this.questions);
+  this.questionsService.getQuestions().subscribe((data: Question[]) => this.questions = { ...data });
+  }
 
   onSubmit(f: NgForm) { 
     this.questions.push(f.value);

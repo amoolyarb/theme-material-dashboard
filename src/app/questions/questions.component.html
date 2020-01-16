@@ -7,12 +7,11 @@
                         <table class="table table-hover table-striped">
                             <thead>
                                  <tr>
-                                    <th *ngFor="let cell of tableData1.headerRow">  {{ cell }} </th>
+                                    <th *ngFor="let tablehead of tableData1.headerRow">  {{ tablehead }} </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <div class="clearfix"></div>
-                                    <tr *ngFor="let row of questions">
+                               <tr *ngFor="let row of questions">
                                         <td>{{row.title}}</td>
                                         <td>{{row.description}}</td>
                                         <td>{{row.answer_id}}</td>
