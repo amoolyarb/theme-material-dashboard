@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
-        setTimeout(function() {
+        setTimeout(() => {
             toggleButton.classList.add('toggled');
         }, 500);
 
@@ -70,13 +70,13 @@ export class NavbarComponent implements OnInit {
             if (this.layer) {
                 this.layer.remove();
             }
-            setTimeout(function() {
+            setTimeout(() => {
                 $toggle.classList.remove('toggled');
             }, 400);
 
             this.mobileMenuVisible = 0;
         } else {
-            setTimeout(function() {
+            setTimeout(() => {
                 $toggle.classList.add('toggled');
             }, 430);
 
@@ -113,13 +113,13 @@ export class NavbarComponent implements OnInit {
     getTitle() {
       let titlee = this.location.prepareExternalUrl(this.location.path());
       if (titlee.charAt(0) === '#') {
-          titlee = titlee.slice( 1 );
+        titlee = titlee.slice( 1 );
       }
 
-    for (let item = 0; item < this.listTitles.length; item++) {
-          if (this.listTitles[item].path === titlee) {
-            return this.listTitles[item].title;
-          }
+      for (let item = 0; item < this.listTitles.length; item++) {
+        if (this.listTitles[item].path === titlee) {
+          return this.listTitles[item].title;
+        }
       }
       return 'Dashboard';
     }

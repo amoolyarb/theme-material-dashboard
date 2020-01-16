@@ -13,18 +13,5 @@ export class AssessmentsComponent implements OnInit {
 
   constructor(private assessmentsService: AssessmentsService) {}
 
-  ngOnInit() {
-    this.tableData1 = {
-      headerRow: ['title', 'description', 'duration', 'tags', 'industries', 'premium', 'link'],
-    };
-
-  this.showassessments();
-  }
-
-  showassessments() {
-    this.assessmentsService.getAssessments().subscribe((data: Assessment[]) => {
-           const strAssessments = JSON.stringify(data);
-           console.log(strAssessments);
-         });
-  }
+  ngOnInit() {}
 }

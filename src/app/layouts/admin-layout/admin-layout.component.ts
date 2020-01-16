@@ -6,7 +6,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from 'jquery';
-
+/* tslint:disable:one-variable-per-declaration */
 @Component({
   selector: 'hl-admin-layout',
   templateUrl: './admin-layout.component.html',
@@ -29,13 +29,14 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
       } else {
           document.getElementsByTagName('body')[0].classList.remove('perfect-scrollbar-off');
       }
-      const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
-      const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
+      const elemMainPanel = <HTMLElement> document.querySelector('.main-panel');
+      const elemSidebar = <HTMLElement> document.querySelector('.sidebar .sidebar-wrapper');
+
 
       this.location.subscribe((ev: PopStateEvent) => {
           this.lastPoppedUrl = ev.url;
       });
-       this.router.events.subscribe((event: any) => {
+      this.router.events.subscribe((event: any) => {
           if (event instanceof NavigationStart) {
             if (event.url !== this.lastPoppedUrl) {
               this.yScrollStack.push(window.scrollY);
@@ -58,13 +59,13 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
           ps = new PerfectScrollbar(elemSidebar);
       }
 
-      const window_width = $(window).width();
+      const windowWidth = $(window).width();
       const $sidebar = $('.sidebar');
-      const $sidebar_responsive = $('body > .navbar-collapse');
-      const $sidebar_img_container = $sidebar.find('.sidebar-background');
+      const $sidebarResponsive = $('body > .navbar-collapse');
+      const $sidebarImgContainer = $sidebar.find('.sidebar-background');
 
 
-      if (window_width > 767) {
+      if (windowWidth > 767) {
           if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
               $('.fixed-plugin .dropdown').addClass('open');
           }
@@ -83,49 +84,49 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
       });
 
       $('.fixed-plugin .badge').click(function() {
-          const $full_page_background = $('.full-page-background');
+          const fullPageBackground = $('.full-page-background');
 
 
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
 
-          const new_color = $(this).data('color');
+          const newColor = $(this).data('color');
 
           if ($sidebar.length !== 0) {
-              $sidebar.attr('data-color', new_color);
+              $sidebar.attr('data-color', newColor);
           }
 
-          if ($sidebar_responsive.length !== 0) {
-              $sidebar_responsive.attr('data-color', new_color);
+          if ($sidebarResponsive.length !== 0) {
+              $sidebarResponsive.attr('data-color', newColor);
           }
       });
 
-      $('.fixed-plugin .img-holder').click(function() {
-          const $full_page_background = $('.full-page-background');
+      $('.fixed-plugin .img-holder').click(() => {
+          const fullPageBackground = $('.full-page-background');
 
           $(this).parent('li').siblings().removeClass('active');
           $(this).parent('li').addClass('active');
 
 
-          const new_image = $(this).find('img').attr('src');
+          const newImage = $(this).find('img').attr('src');
 
-          if ($sidebar_img_container.length !== 0 ) {
-              $sidebar_img_container.fadeOut('fast', function() {
-                 $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                 $sidebar_img_container.fadeIn('fast');
+          if ($sidebarImgContainer.length !== 0 ) {
+              $sidebarImgContainer.fadeOut('fast', () => {
+                 $sidebarImgContainer.css('background-image', 'url("' + newImage + '")');
+                 $sidebarImgContainer.fadeIn('fast');
               });
           }
 
-          if ($full_page_background.length !== 0) {
+          if (fullPageBackground.length !== 0) {
 
-              $full_page_background.fadeOut('fast', function() {
-                 $full_page_background.css('background-image', 'url("' + new_image + '")');
-                 $full_page_background.fadeIn('fast');
+              fullPageBackground.fadeOut('fast', () => {
+                 fullPageBackground.css('background-image', 'url("' + newImage + '")');
+                 fullPageBackground.fadeIn('fast');
               });
           }
 
-          if ($sidebar_responsive.length !== 0) {
-              $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          if ($sidebarResponsive.length !== 0) {
+              $sidebarResponsive.css('background-image', 'url("' + newImage + '")');
           }
       });
   }
@@ -145,7 +146,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   }
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-      const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
+      const elemMainPanel = <HTMLElement> document.querySelector('.main-panel');
       const ps = new PerfectScrollbar(elemMainPanel);
       ps.update();
     }

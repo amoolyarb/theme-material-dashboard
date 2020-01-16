@@ -37,5 +37,5 @@ export class SidebarComponent implements OnInit {
           return false;
       }
       return true;
-  };
+  }
 }
