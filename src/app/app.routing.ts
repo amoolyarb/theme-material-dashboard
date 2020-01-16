@@ -1,3 +1,7 @@
+/**
+ * HighLearner @viewwiser.com
+ * Dependency modules
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
@@ -9,6 +13,10 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { TermsComponent } from './pages/terms/terms.component';
 
+/**
+ * App Routing
+ * list of Routes
+ */
 const routes: Routes = [
   { path: '', component: LandingComponent },
   {
@@ -25,6 +33,10 @@ const routes: Routes = [
   { path: 'terms', component: TermsComponent },
 ];
 
+/**
+ * App Routing Module
+ * @NgModule AppRoutingModule
+ */
 @NgModule({
   imports: [
     CommonModule,
