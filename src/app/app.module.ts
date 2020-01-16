@@ -1,3 +1,7 @@
+/**
+ * HighLearner @viewwiser.com
+ * Dependency modules
+ */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
