@@ -1,0 +1,1156 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<style>
+			html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, sans-serif
+}
+
+h2 {
+	font-size: 1em;
+	margin: 0;
+	font-weight: 500;
+}
+
+hr {
+	margin: 0 0 10px 0;
+	border: 1px solid #efefef;
+}
+
+.report {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.card {
+	border: 1px solid #efefef;
+	margin: 10px 0;
+	box-shadow: 5px 5px 12px -4px rgba(235,235,235,1);
+}
+
+.fill {
+	flex: 1 1 auto;
+}
+
+.card:hover {
+	border-color: #aaaaaa;
+}
+
+.card.fatal .card-header {
+	background: #d00;
+	color: white;
+}
+
+.card.error .card-header {
+	border-left: 5px solid #d00;
+}
+
+.card.warning .card-header {
+	border-left: 5px solid #f80;
+}
+
+.card.ok .card-header {
+	border-left: 5px solid #0d0;
+}
+
+.card.expanded .card-content {
+	display: block;
+}
+
+.card-header {
+	display: flex;
+	padding: 10px;
+	flex-wrap: nowrap;
+	cursor: pointer;
+}
+pre {
+	margin: 10px 0 0 50px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #666;
+	line-height: 1em;
+	
+}
+
+.pointer {
+	font-weight: bold;
+	color: red;
+}
+
+em {
+	padding-left: 1em;
+	font-style: italic;
+	opacity: .5;
+}
+
+.status {
+	font-size: .8em;
+	font-weight: 500;
+	background: rgba(0, 0, 0, .25);
+	color: white;
+	padding: 3px 6px;
+	border-radius: 5px;
+}
+
+.status.error {
+	background: #d00;
+}
+
+.status.warning {
+	background: #f80;
+}
+
+.message {
+	/*display: flex; 
+	flex-wrap: nowrap;*/
+	margin: 0 0 5px 20px;
+	border-bottom: 1px solid #efefef;
+	line-height: 1.5em;
+}
+
+.message.error .coords {
+	color: #d00;
+	border-left: 5px solid #d00;
+}
+
+.message.warning .coords {
+	color: #f80;
+	border-left: 5px solid #f80;
+}
+
+.message:hover {
+	background: #f8f8f8;
+}
+.no-wrap {
+	white-space: nowrap;
+}
+
+.coords {
+	display: inline-block;
+	min-width: 50px;
+	text-align: center;
+	font-size: .8em;
+	font-weight: 500;
+}
+
+.badge {
+  display: inline-table;
+  background: rgba(0, 0, 0, .25);
+  border-radius: 6px;
+  color: white;
+  font-size: .8em;
+}
+
+.badge .badge-label{
+  display: table-cell;
+  background: #666;
+  line-height: inherit;
+  border-radius: 6px 0 0 6px;
+  padding: 3px 6px;
+  font-weight: 500;
+}
+
+.badge .badge-value {
+  display: table-cell;
+  padding: 3px 6px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.badge.ok {
+	background: #0d0;
+}
+
+.badge.error {
+	background: #d00;
+}
+
+.badge.warning {
+	background: #f80;
+}
+
+.badge.link {
+	background: #bbf;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.card .card-content {
+	display: none;
+}
+		</style>
+	</head>
+	<body> 
+		<div class="report">
+			<h1>TSLint report</h1>
+			<div>
+				<span class="badge error">
+					<span class="badge-label">files with errors:</span>
+					<span class="badge-value">12</span>
+				</span>
+				<span class="badge error">
+					<span class="badge-label">total errors:</span>
+					<span class="badge-value">114</span>
+				</span>
+			</div>
+			<br />
+			<div>
+				<h2>Top 10 failing rules</h2>
+				<a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">object-literal-key-quotes</span>
+						<span class="badge-value">52</span>
+					</span>
+				</a><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">semicolon</span>
+						<span class="badge-value">13</span>
+					</span>
+				</a><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">variable-name</span>
+						<span class="badge-value">10</span>
+					</span>
+				</a><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">only-arrow-functions</span>
+						<span class="badge-value">9</span>
+					</span>
+				</a><a href="https://palantir.github.io/tslint/rules/align" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">align</span>
+						<span class="badge-value">7</span>
+					</span>
+				</a><a href="https://palantir.github.io/tslint/rules/deprecation" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">deprecation</span>
+						<span class="badge-value">6</span>
+					</span>
+				</a><a href="https://palantir.github.io/tslint/rules/jsdoc-format" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">jsdoc-format</span>
+						<span class="badge-value">3</span>
+					</span>
+				</a><a href="https://palantir.github.io/tslint/rules/no-angle-bracket-type-assertion" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">no-angle-bracket-type-assertion</span>
+						<span class="badge-value">3</span>
+					</span>
+				</a><a href="https://palantir.github.io/tslint/rules/whitespace" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">whitespace</span>
+						<span class="badge-value">3</span>
+					</span>
+				</a><a href="https://palantir.github.io/tslint/rules/object-literal-shorthand" target="_blank">
+					<span class="badge info">
+						<span class="badge-label">object-literal-shorthand</span>
+						<span class="badge-value">3</span>
+					</span>
+				</a>
+			</div>
+			<div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>maps.component.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/app/maps</em>
+					<div>
+						<span class="badge error"><span class="badge-value">52</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">27:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;water&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">28:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">29:16</span>
+						Unnecessarily quoted property &#x27;saturation&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;saturation&#x27;: 43<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">31:16</span>
+						Unnecessarily quoted property &#x27;lightness&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;lightness&#x27;: -11<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">33:16</span>
+						Unnecessarily quoted property &#x27;hue&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;hue&#x27;: &#x27;#0088ff&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">36:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;road&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">37:12</span>
+						Unnecessarily quoted property &#x27;elementType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;elementType&#x27;: &#x27;geometry.fill&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">38:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">39:16</span>
+						Unnecessarily quoted property &#x27;hue&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;hue&#x27;: &#x27;#ff0000&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">41:16</span>
+						Unnecessarily quoted property &#x27;saturation&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;saturation&#x27;: -100<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">43:16</span>
+						Unnecessarily quoted property &#x27;lightness&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;lightness&#x27;: 99<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">46:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;road&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">47:12</span>
+						Unnecessarily quoted property &#x27;elementType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;elementType&#x27;: &#x27;geometry.stroke&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">48:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">49:16</span>
+						Unnecessarily quoted property &#x27;color&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;color&#x27;: &#x27;#808080&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">51:16</span>
+						Unnecessarily quoted property &#x27;lightness&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;lightness&#x27;: 54<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">54:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;landscape.man_made&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">55:12</span>
+						Unnecessarily quoted property &#x27;elementType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;elementType&#x27;: &#x27;geometry.fill&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">56:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">57:16</span>
+						Unnecessarily quoted property &#x27;color&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;color&#x27;: &#x27;#ece2d9&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">60:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;poi.park&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">61:12</span>
+						Unnecessarily quoted property &#x27;elementType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;elementType&#x27;: &#x27;geometry.fill&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">62:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">63:16</span>
+						Unnecessarily quoted property &#x27;color&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;color&#x27;: &#x27;#ccdca1&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">66:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;road&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">67:12</span>
+						Unnecessarily quoted property &#x27;elementType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;elementType&#x27;: &#x27;labels.text.fill&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">68:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">69:16</span>
+						Unnecessarily quoted property &#x27;color&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;color&#x27;: &#x27;#767676&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">72:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;road&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">73:12</span>
+						Unnecessarily quoted property &#x27;elementType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;elementType&#x27;: &#x27;labels.text.stroke&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">74:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">75:16</span>
+						Unnecessarily quoted property &#x27;color&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;color&#x27;: &#x27;#ffffff&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">78:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;poi&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">79:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">80:16</span>
+						Unnecessarily quoted property &#x27;visibility&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;visibility&#x27;: &#x27;off&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">83:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;landscape.natural&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">84:12</span>
+						Unnecessarily quoted property &#x27;elementType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;elementType&#x27;: &#x27;geometry.fill&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">85:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">86:16</span>
+						Unnecessarily quoted property &#x27;visibility&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;visibility&#x27;: &#x27;on&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">88:16</span>
+						Unnecessarily quoted property &#x27;color&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;color&#x27;: &#x27;#b8cb93&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">91:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;poi.park&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">92:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">93:16</span>
+						Unnecessarily quoted property &#x27;visibility&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;visibility&#x27;: &#x27;on&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">96:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;poi.sports_complex&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">97:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">98:16</span>
+						Unnecessarily quoted property &#x27;visibility&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;visibility&#x27;: &#x27;on&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">101:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;poi.medical&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">102:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">103:16</span>
+						Unnecessarily quoted property &#x27;visibility&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;visibility&#x27;: &#x27;on&#x27;<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">106:12</span>
+						Unnecessarily quoted property &#x27;featureType&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;featureType&#x27;: &#x27;poi.business&#x27;,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">107:12</span>
+						Unnecessarily quoted property &#x27;stylers&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>            &#x27;stylers&#x27;: [{<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">108:16</span>
+						Unnecessarily quoted property &#x27;visibility&#x27; found.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-key-quotes" target="_blank">object-literal-key-quotes</a></span></span>
+						<br />
+						<pre>                &#x27;visibility&#x27;: &#x27;simplified&#x27;<span class="pointer">                ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>admin-layout.component.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/app/layouts/admin-layout</em>
+					<div>
+						<span class="badge error"><span class="badge-value">22</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">37:7</span>
+						statements are not aligned
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/align" target="_blank">align</a></span></span>
+						<br />
+						<pre>       this.router.events.subscribe((event: any) =&gt; {<span class="pointer">       ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">31:28</span>
+						Type assertion using the &#x27;&lt;&gt;&#x27; syntax is forbidden. Use the &#x27;as&#x27; syntax instead.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/no-angle-bracket-type-assertion" target="_blank">no-angle-bracket-type-assertion</a></span></span>
+						<br />
+						<pre>      const elemMainPanel = &lt;HTMLElement&gt;document.querySelector(&#x27;.main-panel&#x27;);<span class="pointer">                            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">32:26</span>
+						Type assertion using the &#x27;&lt;&gt;&#x27; syntax is forbidden. Use the &#x27;as&#x27; syntax instead.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/no-angle-bracket-type-assertion" target="_blank">no-angle-bracket-type-assertion</a></span></span>
+						<br />
+						<pre>      const elemSidebar = &lt;HTMLElement&gt;document.querySelector(&#x27;.sidebar .sidebar-wrapper&#x27;);<span class="pointer">                          ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">147:28</span>
+						Type assertion using the &#x27;&lt;&gt;&#x27; syntax is forbidden. Use the &#x27;as&#x27; syntax instead.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/no-angle-bracket-type-assertion" target="_blank">no-angle-bracket-type-assertion</a></span></span>
+						<br />
+						<pre>      const elemMainPanel = &lt;HTMLElement&gt;document.querySelector(&#x27;.main-panel&#x27;);<span class="pointer">                            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">112:53</span>
+						non-arrow functions are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">only-arrow-functions</a></span></span>
+						<br />
+						<pre>              $sidebar_img_container.fadeOut(&#x27;fast&#x27;, function() {<span class="pointer">                                                     ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">120:52</span>
+						non-arrow functions are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">only-arrow-functions</a></span></span>
+						<br />
+						<pre>              $full_page_background.fadeOut(&#x27;fast&#x27;, function() {<span class="pointer">                                                    ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">15:10</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>  private _router: Subscription;<span class="pointer">          ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">60:12</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>      const window_width = $(window).width();<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">62:12</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>      const $sidebar_responsive = $(&#x27;body &gt; .navbar-collapse&#x27;);<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">63:12</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>      const $sidebar_img_container = $sidebar.find(&#x27;.sidebar-background&#x27;);<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">85:16</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>          const $full_page_background = $(&#x27;.full-page-background&#x27;);<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">91:16</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>          const new_color = $(this).data(&#x27;color&#x27;);<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">103:16</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>          const $full_page_background = $(&#x27;.full-page-background&#x27;);<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">109:16</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>          const new_image = $(this).find(&#x27;img&#x27;).attr(&#x27;src&#x27;);<span class="pointer">                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">31:41</span>
+						missing whitespace
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/whitespace" target="_blank">whitespace</a></span></span>
+						<br />
+						<pre>      const elemMainPanel = &lt;HTMLElement&gt;document.querySelector(&#x27;.main-panel&#x27;);<span class="pointer">                                         ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">32:39</span>
+						missing whitespace
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/whitespace" target="_blank">whitespace</a></span></span>
+						<br />
+						<pre>      const elemSidebar = &lt;HTMLElement&gt;document.querySelector(&#x27;.sidebar .sidebar-wrapper&#x27;);<span class="pointer">                                       ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">147:41</span>
+						missing whitespace
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/whitespace" target="_blank">whitespace</a></span></span>
+						<br />
+						<pre>      const elemMainPanel = &lt;HTMLElement&gt;document.querySelector(&#x27;.main-panel&#x27;);<span class="pointer">                                         ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">73:27</span>
+						click is deprecated: Deprecated since 3.3. Use \&#x60;{@link on }\&#x60; or \&#x60;{@link trigger }\&#x60;.
+
+**Cause**: The &#x60;.on()&#x60; and &#x60;.trigger()&#x60; methods can set an event handler or generate an event for any event type, and should be used instead of the shortcut methods. This message also applies to the other event shorthands, including: blur, focus, focusin, focusout, resize, scroll, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, and contextmenu.
+
+**Solution**: Instead of &#x60;.click(fn)&#x60; use &#x60;.on(&quot;click&quot;, fn)&#x60;. Instead of &#x60;.click()&#x60; use &#x60;.trigger(&quot;click&quot;)&#x60;.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/deprecation" target="_blank">deprecation</a></span></span>
+						<br />
+						<pre>      $(&#x27;.fixed-plugin a&#x27;).click(function(event) {<span class="pointer">                           ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">78:32</span>
+						event is deprecated.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/deprecation" target="_blank">deprecation</a></span></span>
+						<br />
+						<pre>              } else if (window.event) {<span class="pointer">                                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">79:24</span>
+						event is deprecated.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/deprecation" target="_blank">deprecation</a></span></span>
+						<br />
+						<pre>                 window.event.cancelBubble = true;<span class="pointer">                        ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">84:32</span>
+						click is deprecated: Deprecated since 3.3. Use \&#x60;{@link on }\&#x60; or \&#x60;{@link trigger }\&#x60;.
+
+**Cause**: The &#x60;.on()&#x60; and &#x60;.trigger()&#x60; methods can set an event handler or generate an event for any event type, and should be used instead of the shortcut methods. This message also applies to the other event shorthands, including: blur, focus, focusin, focusout, resize, scroll, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, and contextmenu.
+
+**Solution**: Instead of &#x60;.click(fn)&#x60; use &#x60;.on(&quot;click&quot;, fn)&#x60;. Instead of &#x60;.click()&#x60; use &#x60;.trigger(&quot;click&quot;)&#x60;.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/deprecation" target="_blank">deprecation</a></span></span>
+						<br />
+						<pre>      $(&#x27;.fixed-plugin .badge&#x27;).click(function() {<span class="pointer">                                ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">102:37</span>
+						click is deprecated: Deprecated since 3.3. Use \&#x60;{@link on }\&#x60; or \&#x60;{@link trigger }\&#x60;.
+
+**Cause**: The &#x60;.on()&#x60; and &#x60;.trigger()&#x60; methods can set an event handler or generate an event for any event type, and should be used instead of the shortcut methods. This message also applies to the other event shorthands, including: blur, focus, focusin, focusout, resize, scroll, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, and contextmenu.
+
+**Solution**: Instead of &#x60;.click(fn)&#x60; use &#x60;.on(&quot;click&quot;, fn)&#x60;. Instead of &#x60;.click()&#x60; use &#x60;.trigger(&quot;click&quot;)&#x60;.
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/deprecation" target="_blank">deprecation</a></span></span>
+						<br />
+						<pre>      $(&#x27;.fixed-plugin .img-holder&#x27;).click(function() {<span class="pointer">                                     ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>dashboard.component.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/app/pages/dashboard</em>
+					<div>
+						<span class="badge error"><span class="badge-value">13</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">77:5</span>
+						statements are not aligned
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/align" target="_blank">align</a></span></span>
+						<br />
+						<pre>     const optionsDailySalesChart: any = {<span class="pointer">     ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">100:5</span>
+						statements are not aligned
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/align" target="_blank">align</a></span></span>
+						<br />
+						<pre>     const optionsCompletedTasksChart: any = {<span class="pointer">     ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">137:12</span>
+						Expected method shorthand in object literal (&#x27;{labelInterpolationFnc() {...}}&#x27;).
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-shorthand" target="_blank">object-literal-shorthand</a></span></span>
+						<br />
+						<pre>            labelInterpolationFnc: function (value) {<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">12:6</span>
+						Multiple variable declarations in the same statement are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/one-variable-per-declaration" target="_blank">one-variable-per-declaration</a></span></span>
+						<br />
+						<pre>      let seq: any, delays: any, durations: any;<span class="pointer">      ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">45:6</span>
+						Multiple variable declarations in the same statement are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/one-variable-per-declaration" target="_blank">one-variable-per-declaration</a></span></span>
+						<br />
+						<pre>      let seq2: any, delays2: any, durations2: any;<span class="pointer">      ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">17:23</span>
+						non-arrow functions are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">only-arrow-functions</a></span></span>
+						<br />
+						<pre>      chart.on(&#x27;draw&#x27;, function(data) {<span class="pointer">                       ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">50:23</span>
+						non-arrow functions are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">only-arrow-functions</a></span></span>
+						<br />
+						<pre>      chart.on(&#x27;draw&#x27;, function(data) {<span class="pointer">                       ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">137:35</span>
+						non-arrow functions are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">only-arrow-functions</a></span></span>
+						<br />
+						<pre>            labelInterpolationFnc: function (value) {<span class="pointer">                                   ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">43:3</span>
+						Unnecessary semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>  };<span class="pointer">   ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">66:3</span>
+						Unnecessary semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>  };<span class="pointer">   ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">84:7</span>
+						Missing semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>      }<span class="pointer">       ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">107:7</span>
+						Missing semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>      }<span class="pointer">       ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">137:43</span>
+						Spaces before function parens are disallowed
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/space-before-function-paren" target="_blank">space-before-function-paren</a></span></span>
+						<br />
+						<pre>            labelInterpolationFnc: function (value) {<span class="pointer">                                           ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>navbar.component.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/app/components/navbar</em>
+					<div>
+						<span class="badge error"><span class="badge-value">11</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">20:10</span>
+						statements are not aligned
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/align" target="_blank">align</a></span></span>
+						<br />
+						<pre>          this.sidebarVisible = false;<span class="pointer">          ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">29:9</span>
+						statements are not aligned
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/align" target="_blank">align</a></span></span>
+						<br />
+						<pre>         this.layer = document.getElementsByClassName(&#x27;close-layer&#x27;)[0];<span class="pointer">         ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">30:9</span>
+						statements are not aligned
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/align" target="_blank">align</a></span></span>
+						<br />
+						<pre>         if (this.layer) {<span class="pointer">         ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">40:19</span>
+						non-arrow functions are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">only-arrow-functions</a></span></span>
+						<br />
+						<pre>        setTimeout(function() {<span class="pointer">                   ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">72:23</span>
+						non-arrow functions are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">only-arrow-functions</a></span></span>
+						<br />
+						<pre>            setTimeout(function() {<span class="pointer">                       ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">78:23</span>
+						non-arrow functions are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">only-arrow-functions</a></span></span>
+						<br />
+						<pre>            setTimeout(function() {<span class="pointer">                       ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">118:6</span>
+						Expected a &#x27;for-of&#x27; loop instead of a &#x27;for&#x27; loop with this simple iteration
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/prefer-for-of" target="_blank">prefer-for-of</a></span></span>
+						<br />
+						<pre>      for (let item = 0; item &lt; this.listTitles.length; item++) {<span class="pointer">      ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">47:5</span>
+						Unnecessary semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>    };<span class="pointer">     ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">53:5</span>
+						Unnecessary semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>    };<span class="pointer">     ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">110:5</span>
+						Unnecessary semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>    };<span class="pointer">     ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">13:4</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>    mobile_menu_visible: any = 0;<span class="pointer">    ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>tests.component.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/app/pages/tests</em>
+					<div>
+						<span class="badge error"><span class="badge-value">4</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">3:12</span>
+						Properties should be separated by semicolons
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>  id: number,<span class="pointer">            ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">4:15</span>
+						Properties should be separated by semicolons
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>  title: string,<span class="pointer">               ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">5:14</span>
+						Missing semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>  icon: string<span class="pointer">              ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">77:5</span>
+						Missing semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>    ]<span class="pointer">     ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>polyfills.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src</em>
+					<div>
+						<span class="badge error"><span class="badge-value">3</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">20:0</span>
+						jsdoc is not formatted correctly on this line
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/jsdoc-format" target="_blank">jsdoc-format</a></span></span>
+						<br />
+						<pre>/** IE9, IE10 and IE11 requires all of the following polyfills. **/<span class="pointer">^</span></pre>
+					</div><div class="message error">
+						<span class="coords">42:0</span>
+						jsdoc is not formatted correctly on this line
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/jsdoc-format" target="_blank">jsdoc-format</a></span></span>
+						<br />
+						<pre>/** Evergreen browsers require these. **/<span class="pointer">^</span></pre>
+					</div><div class="message error">
+						<span class="coords">47:0</span>
+						jsdoc is not formatted correctly on this line
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/jsdoc-format" target="_blank">jsdoc-format</a></span></span>
+						<br />
+						<pre>/** ALL Firefox browsers require the following to support &#x60;@angular/animation&#x60;. **/<span class="pointer">^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>test.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src</em>
+					<div>
+						<span class="badge error"><span class="badge-value">2</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">19:19</span>
+						non-arrow functions are forbidden
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/only-arrow-functions" target="_blank">only-arrow-functions</a></span></span>
+						<br />
+						<pre>__karma__.loaded = function () {};<span class="pointer">                   ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">19:27</span>
+						Spaces before function parens are disallowed
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/space-before-function-paren" target="_blank">space-before-function-paren</a></span></span>
+						<br />
+						<pre>__karma__.loaded = function () {};<span class="pointer">                           ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>notifications.component.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/app/notifications</em>
+					<div>
+						<span class="badge error"><span class="badge-value">2</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">23:14</span>
+						Expected property shorthand in object literal (&#x27;{from}&#x27;).
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-shorthand" target="_blank">object-literal-shorthand</a></span></span>
+						<br />
+						<pre>              from: from,<span class="pointer">              ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">24:14</span>
+						Expected property shorthand in object literal (&#x27;{align}&#x27;).
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/object-literal-shorthand" target="_blank">object-literal-shorthand</a></span></span>
+						<br />
+						<pre>              align: align<span class="pointer">              ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>assessments.component.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/app/pages/assessments</em>
+					<div>
+						<span class="badge error"><span class="badge-value">2</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">25:2</span>
+						statements are not aligned
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/align" target="_blank">align</a></span></span>
+						<br />
+						<pre>  this.showassessments();<span class="pointer">  ^</span></pre>
+					</div><div class="message error">
+						<span class="coords">31:17</span>
+						variable name must be in lowerCamelCase, PascalCase or UPPER_CASE
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/variable-name" target="_blank">variable-name</a></span></span>
+						<br />
+						<pre>           const str_assessments = JSON.stringify(data);<span class="pointer">                 ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>app.module.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/app</em>
+					<div>
+						<span class="badge error"><span class="badge-value">1</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">32:4</span>
+						HttpModule is deprecated: see https://angular.io/guide/http
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/deprecation" target="_blank">deprecation</a></span></span>
+						<br />
+						<pre>    HttpModule,<span class="pointer">    ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>environment.prod.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/environments</em>
+					<div>
+						<span class="badge error"><span class="badge-value">1</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">4:1</span>
+						Missing semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>}<span class="pointer"> ^</span></pre>
+					</div>
+				</div>
+			</div><div class="card error">
+				<div class="card-header" data-hash="">
+					<h2>sidebar.component.ts</h2>
+					<em class="fill">in /Users/pravinvaja/angular_workspace/theme-material-dashboard/src/app/components/sidebar</em>
+					<div>
+						<span class="badge error"><span class="badge-value">1</span></span>
+					</div>
+				</div>
+				<div class="card-content">
+					<hr>
+					<div class="message error">
+						<span class="coords">39:3</span>
+						Unnecessary semicolon
+						<span class="badge link"><span class="badge-value"><a href="https://palantir.github.io/tslint/rules/semicolon" target="_blank">semicolon</a></span></span>
+						<br />
+						<pre>  };<span class="pointer">   ^</span></pre>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			/* eslint-env browser */
+(function(window){
+	'use strict';
+	
+	var document = window.document,
+		slice = Array.prototype.slice;
+	
+	function bindHeaderClicks(){
+		var headers = document.querySelectorAll('.card-header');
+	 
+		slice.call(headers).forEach(function(el){
+			el.addEventListener('click', function(){
+				var classList = this.parentNode.classList,
+					expanded, state;
+				
+				if (classList.contains('ok')){
+					return;
+				}
+				
+				expanded = classList.toggle('expanded');
+				
+				state = expanded ? '#' + this.getAttribute('data-hash') : '.'
+				
+				window.history.replaceState(null, null, state);
+
+			});
+		});
+	}
+	
+	function goToHash(){
+		var hash = window.location.hash;
+		if (hash){
+			hash = hash.replace('#','');
+		}
+		
+		if (!hash){
+			return;
+		}
+		
+		var el = document.querySelector('[data-hash="' + hash + '"]');
+		
+		if (el){
+			el.click();
+			el.parentNode.scrollIntoView();
+		}
+	}
+	
+	document.addEventListener("DOMContentLoaded", function(){
+		bindHeaderClicks();
+		goToHash();
+	});
+	
+	
+	
+})(window);
+
+		</script>
+	</body>
+</html>
