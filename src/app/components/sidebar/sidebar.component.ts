@@ -16,7 +16,6 @@ export const ROUTES: RouteInfo[] = [
     { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     */
-
 ];
 
 @Component({
@@ -32,10 +31,11 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
+  
   isMobileMenu() {
-      if ($(window).width() > 991) {
-          return false;
-      }
-      return true;
-  };
+    if ($(window).width() > 991) {
+      return false;
+    }
+    return true;
+  }
 }
