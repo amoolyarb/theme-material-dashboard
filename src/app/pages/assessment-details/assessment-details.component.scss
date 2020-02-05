@@ -1,0 +1,40 @@
+b, strong {
+    font-weight: bold;
+    font-size: 32px;
+}
+heading-text {
+    font-size: 32px;
+}
+.description{
+	margin: 0 0 11px;
+	font-size: 15px;
+	color:black;
+	grid-row-gap:15px;
+}  
+.ribbon {
+    position: relative;
+    background-color: #69bd26;
+    padding: 20px 10px 20px 60px;
+    line-height: 20px;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+@media (min-width: 992px){
+.col-md-12 {
+    width: 100%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+   }
+}
+b, strong {
+    font-weight: bold;
+}
+.image{
+	width:300px;
+	height:500px
+}

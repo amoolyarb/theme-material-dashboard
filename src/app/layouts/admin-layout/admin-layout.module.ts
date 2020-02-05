@@ -5,13 +5,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '@app/pages/dashboard/dashboard.component';
 import { UserProfileComponent } from '@app/pages/user-profile/user-profile.component';
-import { TestsComponent } from '@app/pages/tests/tests.component';
 import { SubjectcardComponent } from '@app/components/subjectcard/subjectcard.component';
 import { TestLibraryComponent } from '@app/pages/test-library/test-library.component';
-import { AssessmentsComponent } from '@app/pages/assessments/assessments.component';
 import { QuestionsComponent } from '@app/pages/questions/questions.component';
-
 import { QuestionsService } from '@app/pages/questions/questions.service';
+import { AssessmentDetailsComponent } from '@app/pages/assessment-details/assessment-details.component';
+import { AssessmentsService } from '@app/services/assessments.service';
+import { AssessmentDetailsService } from '@app/services/assessment-details.service';
+import { AddAssessmentsComponent } from '@app/pages/add-assessments/add-assessments.component';
+import { CreateTestComponent } from '@app/pages/create-test/create-test.component';
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -20,7 +23,6 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
-import { AssessmentsService } from '@app/services/assessments.service';
 
 @NgModule({
   imports: [
@@ -38,14 +40,16 @@ import { AssessmentsService } from '@app/services/assessments.service';
   declarations: [
     DashboardComponent,
     UserProfileComponent,
-    TestsComponent,
     TestLibraryComponent,
     SubjectcardComponent,
-    AssessmentsComponent,
     QuestionsComponent,
+    AssessmentDetailsComponent,
+    AddAssessmentsComponent,
+    CreateTestComponent
   ],
   providers: [
     QuestionsService,
+    AssessmentDetailsService,
     AssessmentsService
   ]
 })

@@ -1,9 +1,8 @@
-export interface Assessment {
+export interface AssessmentDetails {
 title: number;
 description: string;
 duration: string;
-tags: string;
-industries: string;
+language: string;
 premium: string;
 link: string;
 }

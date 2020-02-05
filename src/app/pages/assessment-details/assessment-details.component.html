@@ -1,0 +1,48 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+            <h1 class="heading-text">
+                <strong *ngFor ="let row of AssessmentDetails">{{row.title}}</strong>
+                <div class="card">
+                    <p class="description" *ngFor ="let row of AssessmentDetails">{{row.description}}</p>
+                </div>
+            </h1>
+            <div class="card-body">
+                   <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <tr>
+                                <th>Test Duration</th>
+                                <th>Test Language</th>
+                                <th>Premium</th>
+                            </tr>
+                            <tbody>
+                                <tr *ngFor ="let row of AssessmentDetails">
+                                    <td>{{row.duration}}</td>
+                                    <td>{{row.language}}</td>
+                                    <td>{{row.premium}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-12">
+                <div class="ribbon">
+                    <h3>Premium Test</h3>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <h4> Relevant Industries</h4>
+                    <ul *ngFor ="let row of AssessmentDetails">{{row.industries}}</ul>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <img class= "image" src="assets/img/blah.jpeg">
+            </div>
+        </div>
+    </div>
+</div>
+</div>

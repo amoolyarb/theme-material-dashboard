@@ -13,8 +13,12 @@ import { Subject } from '@app/models/subject.model';
 
 export class SubjectcardComponent implements OnInit {
   @Input() subject: Subject;
-
+  
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+  move(title){
+  	alert(title);
+  }
 }
