@@ -1,0 +1,5 @@
+[{"subject": "Basic Maths","question": "What is 2+2 ?","a_type": "Multiple Choice", "answer":"4"},
+{"subject": "Science","question": "What is Photosynthesis ?","a_type": "Descriptive","answer":"The process by which green plants and some other organisms use sunlight to synthesize nutrients from carbon dioxide and water. Photosynthesis in plants generally involves the green pigment chlorophyll and generates oxygen as a by-product."},
+{"subject": "Electronics","question": "What is a diode ?","a_type": "Descriptive","answer":"A semiconductor device with two terminals, typically allowing the flow of current in one direction only."},
+{"subject": "Computer Science","question": "Expand RAM ?","a_type": "Descriptive","answer":"Random Access Memory"},
+{"subject": "General Knowledge","question": "Who is the first Prime Minister of India ?","a_type": "Multiple Choice","answer":"Jawaharlal Nehru"}]

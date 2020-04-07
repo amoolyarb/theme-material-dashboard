@@ -13,7 +13,7 @@ import * as $ from 'jquery';
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit, AfterViewInit {
-  private _router: Subscription;
+  private router1: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
 
@@ -29,8 +29,8 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
       } else {
           document.getElementsByTagName('body')[0].classList.remove('perfect-scrollbar-off');
       }
-      const elemMainPanel = <HTMLElement> document.querySelector('.main-panel');
-      const elemSidebar = <HTMLElement> document.querySelector('.sidebar .sidebar-wrapper');
+      const elemMainPanel = document.querySelector('.main-panel') as HTMLElement;
+      const elemSidebar = document.querySelector('.sidebar .sidebar-wrapper') as HTMLElement;
 
 
       this.location.subscribe((ev: PopStateEvent) => {
@@ -50,7 +50,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
             }
          }
       });
-      this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
+      this.router1 = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
            elemMainPanel.scrollTop = 0;
            elemSidebar.scrollTop = 0;
       });
@@ -146,7 +146,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   }
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-      const elemMainPanel = <HTMLElement> document.querySelector('.main-panel');
+      const elemMainPanel = document.querySelector('.main-panel') as HTMLElement;
       const ps = new PerfectScrollbar(elemMainPanel);
       ps.update();
     }

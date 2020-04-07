@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { BreadcrumbModule } from 'angular-crumbs';
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -34,7 +35,8 @@ import { TermsComponent} from './pages/terms/terms.component';
     HttpClientModule,
     ComponentsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BreadcrumbModule
   ],
   declarations: [
     AppComponent,

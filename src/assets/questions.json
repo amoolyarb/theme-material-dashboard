@@ -1,1 +1,5 @@
-[{"title": "ques1","description": "This question is based on Mathematics","answer_id":"1","answer": "Multiple Choice","a_type": "Multiple Choice"}]
+[{"ques_no": "1","subject": "Basic Maths","question": "What is 2+2 ?","a_type": "Multiple Choice"},
+{"ques_no": "2","subject": "Science","question": "What is Photosynthesis ?","a_type": "Descriptive"},
+{"ques_no": "3","subject": "Electronics","question": "What is a diode ?","a_type": "Descriptive"},
+{"ques_no": "4","subject": "Computer Science","question": "Expand RAM ?","a_type": "Descriptive"},
+{"ques_no": "5","subject": "General Knowledge","question": "Who is the first Prime Minister of India ?","a_type": "Multiple Choice"}]

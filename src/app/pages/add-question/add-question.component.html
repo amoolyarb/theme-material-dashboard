@@ -1,0 +1,217 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div class="main-content" >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title mt-0"> QUESTIONS</h4>
+                </div>
+                <br>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>SUBJECT</th>
+                                <th>QUESTION</th>
+                                <th>QUESTION  TYPE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of questions">
+                                <td>{{row.subject}}</td>
+                                <td>{{row.a_type}}</td>
+                                <td>{{row.question}}</td>
+                                <td> <button id="myBtn"  class="btn btn-danger btn btn-link">View Answer</button></td>
+                                <td><button type="button"(click)= "deleteQuestions(row)" class="btn btn-danger btn btn-link">Delete</button></td>
+                                
+                            </tr>
+                            <tr *ngFor="let addques of addquestions">
+                                <td>{{addques.Subject}}</td>
+                                <td>{{addques.QuestionType}}</td>
+                                <td>{{addques.Question}}</td>
+                                <td> <button id="myBtn"  class="btn btn-danger btn btn-link">View Answer</button></td>                                    <td><button type="button"(click)= "deleteQuestions1(row)" class="btn btn-danger btn btn-link">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Answer</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<body ng-app="">
+ <div class="card">
+    <label>Choose Question Type </label> <br>
+    <label>Multiple Choice Type </label>
+    <input type="checkbox" ng-model="mcq">
+    <label> Checkbox Type </label>
+    <input type="checkbox" ng-model="chkbx">
+</div>
+<div ng-show="mcq">
+   <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title mt-0"> ADD QUESTION</h4>
+            </div><br>
+            <div class="content">
+                <form #f1="ngForm" (ngSubmit)="onSubmit1(f1)" novalidate>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="Topic" name="Subject" ngModel #Subject="ngModel" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label>Topic</label>
+                                <input type="Topic" name="Topic" ngModel #Topic="ngModel" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label>Question</label>
+                                <input type="text" name="Question" ngModel #Question="ngModel" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>Question Type</label>
+                                <input type="text" name="QuestionType" ngModel #QuestionType="ngModel" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>Answer</label>
+                                <input type="text" name="Answer" ngModel #Answer="ngModel" class="form-control" required>
+                            </div>
+                        </div>
+                    </div> <br>
+                    <div class="col-md-5">
+                        <label>Answer Options</label><br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" name="AnswerOptions1" ngModel #AnswerOptions1="ngModel" class="form-control" placeholder="Answer Option 1" ng-required="true" />
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" name="AnswerOptions2" ngModel #AnswerOptions2="ngModel" class="form-control" placeholder="Answer Option 2" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" name="AnswerOptions3" ngModel #AnswerOptions3="ngModel" class="form-control" placeholder="Answer Option 3" required>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" name="AnswerOptions4" ngModel #AnswerOptions4="ngModel" class="form-control" placeholder="Answer Option 4" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-fill">ADD</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div ng-show="chkbx">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title mt-0"> ADD QUESTION</h4>
+                </div><br>
+                <div class="content">
+                    <form #f2="ngForm" (ngSubmit)="onSubmit2(f2)" novalidate>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label>Subject</label>
+                                    <input type="Topic" name="Subject" ngModel #Subject="ngModel" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label>Topic</label>
+                                    <input type="Topic" name="Topic" ngModel #Topic="ngModel" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label>Question</label>
+                                    <input type="text" name="Question" ngModel #Question="ngModel" class="form-control" required>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <label>Answer Options</label><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5"> 
+                                <div formArrayName="options">
+                                    <div *ngFor="let address of options.controls; let i=index">
+                                        <!-- The repeated Option template -->
+                                        <label>
+                                            Option: &nbsp;
+                                            <input type="radio"  [formControlName]="i"> &nbsp; <input type="text" [formControlName]="i">
+                                            <button mat-raised-button type="button" class="btn btn-danger btn-link btn-sm btn-just-icon" (click)="deleteOpt(i)">
+                                                <i class="material-icons">close</i></button>
+
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button (click)="addOption()" class="btn btn-danger btn btn-link">ADD OPTION </button> <br>
+                                    <br>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger">ADD</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</div>
+</div>

@@ -1,0 +1,40 @@
+<div class="main-content" >
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+              <thead>
+               <tr>
+                <th>Subject</th>
+                <th>Question</th>
+                <th>Question Type</th>  
+                <th>Answer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of answers">
+                <td>{{row.subject}}</td>
+                <td>{{row.question}}</td>
+                <td>{{row.a_type}}</td>
+                <td>{{row.answer}}</td>
+
+                <td><a href="/answer-details" class="btn btn-danger btn btn-link">Answer Details</a></td>
+              </tr>
+              <tr *ngFor="let addques of addquestions">
+               <td>{{addques.Subject}}</td>
+               <td>{{addques.Subject}}</td>
+               <td>{{addques.Question}}</td>
+               <td>{{addques.QuestionType}}</td>
+               <td>{{addques.Answer}}</td>
+               <td><a href="/answer-details" class="btn btn-danger btn btn-link">Answer Details</a></td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>

@@ -11,8 +11,8 @@ import { QuestionsService } from '@app/services/questions.service';
 
 export class QuestionsComponent implements OnInit {
   questions: Question[];
-  deleteQues: any;
-
+  deleteRow: any;
+  addquestions = [];
   constructor(private questionsService: QuestionsService) {}
 
   ngOnInit() {
@@ -21,11 +21,29 @@ export class QuestionsComponent implements OnInit {
 
   loadQuestions() {
     this.questionsService.getQuestions()
-      .subscribe((data: Question[]) => this.questions = { ...data });
+        .subscribe((data: Question[]) => {
+          this.questions = data;
+        });
   }
 
-  deleteques(question) {
-    this.deleteQues = this.questions.indexOf(question);
-    this.questions.splice(this.deleteQues, 1);
+  deleteQuestions(row) {
+    const answer = window.confirm('Delete Row?')
+    if (answer) {
+      this.deleteRow = this.questions.indexOf(row);
+      this.questions.splice(this.deleteRow, 1);
+    }
   }
+
+  deleteQuestions1(row) {
+    const answer = window.confirm('Delete Row?')
+    if (answer) {
+      this.deleteRow = this.addquestions.indexOf(row);
+      this.addquestions.splice(this.deleteRow, 1);
+    }
+  }
+
+   onSubmit(f: NgForm) {
+      this.addquestions.push(f.value);
+      console.log(this.addquestions);
+      }
 }

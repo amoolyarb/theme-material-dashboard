@@ -1,7 +1,5 @@
 export interface Question {
-  title: string;
-  description: string;
-  answer_id: string;
-  answer: string;
+  ques_no: string;
+  question: string;
   a_type: string;
 }
